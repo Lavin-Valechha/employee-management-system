@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="LoginController">
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" ng-model="loginData.username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" ng-model="loginData.password" required>
+            <button ng-click="login()">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Create one</a>.</p>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('LoginController', ['$scope', '$location', '$window', function($scope, $location, $window) {
+            // Initialize loginData object to store username and password
+            $scope.loginData = {
+                username: '',
+                password: ''
+            };
+
+            // Function to handle login
+            $scope.login = function() {
+                // Static username and password for demonstration purposes
+                var validUsername = 'user';
+                var validPassword = 'password';
+
+                // Check if the entered username and password match the static values
+                if ($scope.loginData.username === validUsername && $scope.loginData.password === validPassword) {
+                    // Redirect to homepage if login is successful
+                    $window.location.href = 'index.html';
+                } else {
+                    // Display error message if login fails
+                    $scope.errorMessage = 'Invalid username or password';
+                }
+            };
+        }]);
+    </script>
+</body>
+</html>

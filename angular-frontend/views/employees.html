@@ -1,0 +1,29 @@
+<style>
+    .new1 a {
+    text-decoration: none;
+    color: #333;
+  }
+</style>
+
+<h1>Welcome to Employee Management System</h1>
+<h3> View Employees</h3>
+<ul class="new">
+  <li class="new1" ng-repeat="employee in employees">
+    <a href ng-click="viewEmployeeDetails(employee._id)">{{employee.name}}</a>
+    <button ng-click="toggleEditMode(employee._id)">Edit</button>
+    <button ng-click="deleteEmployee(employee._id)">Delete</button>
+    <div ng-show="editMode && editedEmployeeId === employee._id">
+        <input type="text" ng-model="employee.name" placeholder="Name" /><br>
+        <input type="email" ng-model="employee.email" placeholder="Email" /><br>
+        <input type="text" ng-model="employee.phone" placeholder="Phone" /><br>
+        <input type="text" ng-model="employee.address" placeholder="Address" /><br>
+        <input type="text" ng-model="employee.position" placeholder="Position" /><br>
+        <input type="text" ng-model="employee.department" placeholder="Department" /><br>
+        <input type="date" ng-model="employee.startDate" /><br>
+        <button ng-click="updateEmployee(employee)">Save</button>
+    </div>
+  </li>
+</ul>
+
+
+

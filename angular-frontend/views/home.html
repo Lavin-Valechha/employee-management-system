@@ -1,0 +1,79 @@
+<style>
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  input, select, button {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #604caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #9e3fc4;
+  }
+
+  span {
+    color: red;
+  }
+</style>
+
+<!-- <a href="#!/employees">View Employees</a> -->
+
+
+<form name="employeeForm" ng-submit="addEmployee()" novalidate>
+  <h2>Add New Employee</h2>
+  <input type="text" ng-model="formData.name" name="name" placeholder="Name" required /><br>
+  <input type="email" ng-model="formData.email" name="email" placeholder="Email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" /><br>
+  <input type="tel" ng-model="formData.phone" name="phone" placeholder="Phone" required ng-pattern="/^\d{10}$/" /><br><br>
+  <input type="text" ng-model="formData.address" name="address" placeholder="Address" required /><br>
+  <input type="text" ng-model="formData.position" name="position" placeholder="Position" required /><br>
+  <select ng-model="formData.department" name="department" required>
+    <option value="" disabled selected>Select Department</option>
+    <option value="HR">HR</option>
+    <option value="Finance">Finance</option>
+    <option value="IT">IT</option>
+  </select>
+  <h6>Start Date:</h6>
+  <input type="date" ng-model="formData.startDate" name="startDate" required /><br>
+  <button type="submit" ng-disabled="employeeForm.$invalid">Add Employee</button>
+</form>
+
+<div ng-show="employeeForm.$submitted || employeeForm.name.$touched">
+  <span ng-show="employeeForm.name.$error.required">Name is required.</span>
+</div>
+<div ng-show="employeeForm.$submitted || employeeForm.email.$touched">
+  <span ng-show="employeeForm.email.$error.required">Email is required.</span>
+  <span ng-show="employeeForm.email.$error.pattern">Invalid email format.</span>
+</div>
+<div ng-show="employeeForm.$submitted || employeeForm.phone.$touched">
+  <span ng-show="employeeForm.phone.$error.required">Phone is required.</span>
+  <span ng-show="employeeForm.phone.$error.pattern">Invalid phone number format (10 digits only).</span>
+</div>
+<div ng-show="employeeForm.$submitted || employeeForm.address.$touched">
+  <span ng-show="employeeForm.address.$error.required">Address is required.</span>
+</div>
+<div ng-show="employeeForm.$submitted || employeeForm.position.$touched">
+  <span ng-show="employeeForm.position.$error.required">Position is required.</span>
+</div>
+<div ng-show="employeeForm.$submitted || employeeForm.department.$touched">
+  <span ng-show="employeeForm.department.$error.required">Department is required.</span>
+</div>
+<div ng-show="employeeForm.$submitted || employeeForm.startDate.$touched">
+  <span ng-show="employeeForm.startDate.$error.required">Start Date is required.</span>
+</div>

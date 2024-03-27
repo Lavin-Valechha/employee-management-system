@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="employeeApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Frontend</title>
+  <style>
+    /* Internal CSS for the navbar */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    nav {
+      background-color: #4735e8;
+      color: #fff;
+      padding: 0; /* Remove padding */
+      margin: 0; /* Remove margin */
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* Make the navbar horizontal */
+    }
+
+    nav ul li {
+      display: inline; /* Display list items inline */
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#!/employees">Home</a></li>
+      <li><a href="#!/addEmployee">Add Employee</a></li>
+      <li><a href="#!/Contact">Contact Us</a></li>
+      <li><a href="#!/About">About Us</a></li>
+      <!-- Add more navigation links as needed -->
+    </ul>
+  </nav>
+  <div ng-view></div>
+</body>
+</html>

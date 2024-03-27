@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="design.css">
+
+</head>
+<body>
+    <div>
+        <h2>Signup</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" ng-model="signupData.username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" ng-model="signupData.password" required>
+            <button ng-click="signup()">Signup</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a>.</p>
+    </div>
+    
+</body>
+</html>
