@@ -15,9 +15,9 @@ body {
   }
   
   li.new1 {
-    margin-bottom: 10px;
-    background-color: #fff;
-    padding: 20px; /* Added padding to the list items */
+    margin-bottom: 12px;
+    background-color: #ff0;
+    padding: 30px; /* Added padding to the list items */
     border-radius: 5px;
   }
   
@@ -43,6 +43,9 @@ body {
   
   button:hover {
     background-color: #4148c4;
+  }
+button:active {
+    background-color: #4148d4;
   }
 
   
